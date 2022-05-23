@@ -50,7 +50,7 @@ Thanks to our plugin, managing the economy on the server will become much more p
 
 [PL]
 
-AAutorski plugin odpowiedzialny za cały system ekonomii na twoim serwerze. 
+Autorski plugin odpowiedzialny za cały system ekonomii na twoim serwerze. 
 
 Dzięki naszemu pluginowi zarządzanie ekonomią na serwerze na stanie się o wiele przyjemniej i prostsze !
 
