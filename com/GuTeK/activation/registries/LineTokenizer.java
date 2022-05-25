@@ -71,11 +71,33 @@ class LineTokenizer {
                             final StringBuffer sb = new StringBuffer();
                             for (int i = start + 1; i < this.currentPosition - 1; ++i) {
                                 c = this.str.charAt(i);
+                                if (c != '\\') {
+                                    sb.append(c);
+                                }
                             }
+                            s = sb.toString();
                         }
+                        else {
+                            s = this.str.substring(start + 1, this.currentPosition - 1);
+                        }
+                        return s;
                     }
+                    continue;
                 }
             }
         }
+        else if ("=".indexOf(c) >= 0) {
+            ++this.currentPosition;
+        }
+        else {
+            while (this.currentPosition < this.maxPosition && "=".indexOf(this.str.charAt(this.currentPosition)) < 0 && !Character.isWhitespace(this.str.charAt(this.currentPosition))) {
+                ++this.currentPosition;
+            }
+        }
+        return this.str.substring(start, this.currentPosition);
+    }
+
+    public void pushToken(final String token) {
+        this.stack.addElement(token);
     }
 }
