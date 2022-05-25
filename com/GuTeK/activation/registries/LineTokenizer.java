@@ -3,7 +3,7 @@
     Project: TNT-MONEY [https://tntcode.pl/plugins/TNT-MONEY]
     Resources: 1/1600
     Date: 23.05.2022
-    Contact Discord: .GuTeK#5326
+    Contact Discord: .GuTeK#0001
     Contact e-mail: wiktor@tntcode.pl
     Our Websites: https://tntnetwork.pl / https://tntcode.pl
     ⓒ 2022 by .GuTeK | ALL RIGHTS RESERVED |
@@ -11,6 +11,7 @@
 
 package GuTeK.activation.registries;
 
+import java.util.NoSuchElementException;
 import java.util.Vector;
 
 class LineTokenizer {
@@ -45,6 +46,36 @@ class LineTokenizer {
         final int size = this.stack.size();
         if (size > 0) {
             final String t = this.stack.elementAt(size - 1);
+            this.stack.removeElementAt(size - 1);
+            return t;
+        }
+        this.skipWhiteSpace();
+        if (this.currentPosition >= this.maxPosition) {
+            throw new NoSuchElementException();
+        }
+        final int start = this.currentPosition;
+        char c = this.str.charAt(start);
+        if (c == '\"') {
+            ++this.currentPosition;
+            boolean filter = false;
+            while (this.currentPosition < this.maxPosition) {
+                c = this.str.charAt(this.currentPosition++);
+                if (c == '\\') {
+                    ++this.currentPosition;
+                    filter = true;
+                }
+                else {
+                    if (c == '\"') {
+                        String s;
+                        if (filter) {
+                            final StringBuffer sb = new StringBuffer();
+                            for (int i = start + 1; i < this.currentPosition - 1; ++i) {
+                                c = this.str.charAt(i);
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }
