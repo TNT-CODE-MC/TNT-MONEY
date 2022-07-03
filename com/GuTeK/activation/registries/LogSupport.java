@@ -2,7 +2,7 @@
     Author: .GuTeK <wiktor@tntcode.pl>
     Project: TNT-MONEY [https://tntcode.pl/plugins/TNT-MONEY]
     Resources: 2/1600
-    Date: 25.05.2022
+    Date: 25.06.2022
     Contact Discord: .GuTeK#0001
     Contact e-mail: wiktor@tntcode.pl
     Our Websites: https://tntnetwork.pl / https://tntcode.pl
